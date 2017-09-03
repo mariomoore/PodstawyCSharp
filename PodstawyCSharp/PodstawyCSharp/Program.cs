@@ -33,10 +33,8 @@ namespace PodstawyCSharp
                 max = temp;
             }
 
-            Random rand = new Random();
-            int first, second;
-            first = rand.Next(min, max);
-            second = rand.Next(min, max);
+            int first = Numer.AddRandomNumber(min, max);
+            int second = Numer.AddRandomNumber(min, max);
             Console.WriteLine("Wylosowałem " + first + " i " + second);
             Console.WriteLine("Suma dwóch losowych liczb z zakresu " + min + " - " + max + " jest równa " + (first + second));
             Console.ReadKey();
