@@ -10,12 +10,17 @@ namespace PodstawyCSharp
     {
         static void Main(string[] args)
         {
-            int wiek;
             string imie;
             Console.WriteLine("Jak masz na imię?");
             imie = Console.ReadLine();
-            Console.WriteLine("Ile masz lat?");
-            wiek = Convert.ToInt32(Console.ReadLine());
+
+            int wiek;
+            do
+            {
+                Console.WriteLine("Ile masz lat?");
+            }
+            while (!Int32.TryParse(Console.ReadLine(), out wiek));
+
             Console.WriteLine("Cześć " + imie + "! Fajnie, że masz " + wiek + " lat.");
             Console.ReadKey();
         }
