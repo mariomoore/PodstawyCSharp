@@ -12,10 +12,27 @@ namespace PodstawyCSharp
         {
             int min, max;
             Console.WriteLine("Będziemy sumować dwie losowe liczby.");
-            Console.WriteLine("Podaj początek zakresu (minimum)");
-            min = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Podaj koniec zakresu (maksimum)");
-            max = Convert.ToInt32(Console.ReadLine());
+
+            do
+            {
+                Console.WriteLine("Podaj początek zakresu (minimum)");
+            }
+            while (!Int32.TryParse(Console.ReadLine(), out min));
+
+            do
+            {
+                Console.WriteLine("Podaj koniec zakresu (maksimum)");
+            }
+            while (!Int32.TryParse(Console.ReadLine(), out max));
+
+            if (min > max)
+            {
+                int temp;
+                temp = min;
+                min = max;
+                max = temp;
+            }
+
             Random rand = new Random();
             int first, second;
             first = rand.Next(min, max);
